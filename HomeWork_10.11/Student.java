@@ -1,10 +1,6 @@
-/* 
-* Я пока что не успела доделать:(
-* Сделан только Класс 1: "Student"
-*/
-public class Universitet {
+public class Student {
 
-	public final String UNIVERSITY_NAME = "KPFU";
+	public final String university_name = "KPFU";
 	private static int totalStudents = 0;	
 
 	private String studentId;
@@ -14,15 +10,15 @@ public class Universitet {
 	private double averageGrade;
 	private String faculty;
 
-	public Universitet() {
+	public Student() {
 		this("123456", "Про", "Пробный", 18, 0.0, "ИМОИиВ");
 	}
 
-	public Universitet(String firstName, String lastName, int age) {
+	public Student(String firstName, String lastName, int age) {
 		this("000000", firstName, lastName, age, 0.0, "ИСФНИМК");
 	}
 
-	public Universitet(String studentId, String firstName, String lastName, int age, double averageGrade, String faculty) {
+	public Student(String studentId, String firstName, String lastName, int age, double averageGrade, String faculty) {
 		this.studentId = studentId;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -38,6 +34,7 @@ public class Universitet {
 		} else {
 			System.out.println("Введенный ID невалиден");
 		}
+		System.out.println();
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
@@ -51,13 +48,15 @@ public class Universitet {
 		} else {
 			System.out.println("Введенный возраст невалиден");
 		}
+		System.out.println();
 	}
 	public void setAverageGrade(double averageGrade) {
-			if ((0.0 <= averageGrade) && (averageGrade <= 5.0)) {
-				this.averageGrade = averageGrade;
-			} else {
-				System.out.println("Введенный балл невалиден");
-			}
+		if ((0.0 <= averageGrade) && (averageGrade <= 5.0)) {
+			this.averageGrade = averageGrade;
+		} else {
+			System.out.println("Введенный балл невалиден");
+		}
+		System.out.println();
 	}
 	public void setFaculty(String faculty) {
 		this.faculty = faculty;
@@ -87,15 +86,17 @@ public class Universitet {
 
 	public void displayInfo() {
 		System.out.println("=====Информация=====");
+		System.out.println("ВУЗ: " + university_name);
 		System.out.println("Имя: " + firstName);
 		System.out.println("Фамилия: " + lastName);
 		System.out.println("Возраст: " + age);
 		System.out.println();
-}
+	}
 
 	public void displayInfo(boolean detailed) {
 		if (detailed) {
 			System.out.println("=====Полная информация=====");
+			System.out.println("ВУЗ: " + university_name);
 			System.out.println("Номер студенческого билета: " + studentId);
 			System.out.println("Имя: " + firstName);
 			System.out.println("Фамилия: " + lastName);
@@ -104,16 +105,16 @@ public class Universitet {
 			System.out.println("Факультет: " + faculty);
 			System.out.println();
 		} else {
-			displayInfo();
+			this.displayInfo();
 		}
 	}
 
 	public void updateGrade(double newGrade) {
-		this.averageGrade = newGrade;
+		setAverageGrade(newGrade);
 	}
 
 	public void updateGrade(double newGrade, String subject) {
-		updateGrade(newGrade);
+		this.updateGrade(newGrade);
 		System.out.println("Средний балл по предмету " + subject + " изменен: новый балл ---> " + averageGrade);
 		System.out.println();
 	}
