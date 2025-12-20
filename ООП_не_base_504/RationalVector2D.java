@@ -3,33 +3,33 @@ public class RationalVector2D {
 	private RationalFraction x;
 	private RationalFraction y;
 
-	public class RationalVector2D() {
-		this((0,1), (0,1));
+	public RationalVector2D() {
+		this(new RationalFraction(0,1), new RationalFraction(0,1));
 	}
 
-	public class RationalVector2D(RationalFraction x, RationalFraction y) {
+	public RationalVector2D(RationalFraction x, RationalFraction y) {
 		setX(x);
-		setY(y);
+        setY(y);
 	}
 
 	public void setX(RationalFraction x) {
-		this.x = x;
-	}
-	public void setY(RationalFraction y) {
-		this.y = y;
-	}
+        this.x = x;
+    }
+    public void setY(RationalFraction y) {
+        this.y = y;
+    }
 
-	public getX(RationalFraction x) {
-		return this.x;
-	}
-	public getY(RationalFraction y) {
-		return this.y;
-	}
+    public RationalFraction getX() {
+        return this.x;
+    }
+    public RationalFraction getY() {
+        return this.y;
+    }
 
 	public RationalVector2D add(RationalVector2D vector) {
 		RationalFraction newX = this.x.add(vector.x);
 		RationalFraction newY = this.y.add(vector.y);
-		return new RationalFraction(newX, newY);
+		return new RationalVector2D(newX, newY);
 	}
 
 	@Override
@@ -50,6 +50,6 @@ public class RationalVector2D {
 	}
 
 	public boolean equals(RationalVector2D vector) {
-		return this.x.equals(vector.x) && this.y(vector.y);
+		return this.x.equals(vector.x) && this.y.equals(vector.y);
 	}
 }
